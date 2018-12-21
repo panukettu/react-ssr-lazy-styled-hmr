@@ -7,7 +7,8 @@
     "start": "nodemon --exec babel-node server.js",
     "dev": "npx webpack-dev-server --open --hot --inline --config webpack.dev.js",
     "build": "npx webpack --config webpack.prod.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "",
