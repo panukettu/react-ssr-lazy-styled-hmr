@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx node build/server.js",
     "dev": "npx babel-node src/server.js",
     "old-dev": "npx webpack-dev-server --open --hot --inline --config webpack.dev.js",
     "build": "npx babel src --out-dir build && npx webpack --config webpack.prod.js",
