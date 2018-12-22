@@ -1,5 +1,5 @@
 import React from "react";
-import { hot } from "react-hot-loader/root";
+import { hot } from "react-hot-loader";
 import Loadable from "react-loadable";
 
 import Notlazy from "./components/NotLazyComponent";
@@ -75,4 +75,4 @@ class App extends React.Component {
   }
 }
 
-export default hot(App);
+export default hot(module)(App);
