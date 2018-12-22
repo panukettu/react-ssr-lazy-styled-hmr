@@ -9,7 +9,7 @@ const Title = styled.h1`
 export default function Component() {
   return (
     <div>
-      <Title>i'm a lazy styled component</Title>
+      <Title>is'm a lazy styled component</Title>
     </div>
   );
 }

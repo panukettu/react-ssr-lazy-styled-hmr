@@ -1,8 +1,9 @@
 import React from "react";
-import Loadable from "react-loadable";
 import { hot } from "react-hot-loader/root";
+import Loadable from "react-loadable";
 
 import Notlazy from "./components/NotLazyComponent";
+import Page from "./components/Page";
 
 const Component = Loadable({
   loader: () => import("./components/Component"),
@@ -14,7 +15,7 @@ const AnotherComponent = Loadable({
   loading: () => <div>Loading</div>
 });
 
-class Client extends React.Component {
+class App extends React.Component {
   state = {
     counter: 1,
     showLazyComponent: false,
@@ -68,9 +69,10 @@ class Client extends React.Component {
         {showLazyComponent && <Component />}
         {showAnotherLazyComponent && <AnotherComponent />}
         {showNormalComponent && <Notlazy />}
+        <Page />
       </div>
     );
   }
 }
 
-export default hot(Client);
+export default hot(App);
