@@ -1,6 +1,6 @@
 import React from "react";
 import Loadable from "react-loadable";
-import { hot, setConfig } from "react-hot-loader";
+import { hot } from "react-hot-loader/root";
 
 import Notlazy from "./components/NotLazyComponent";
 
@@ -14,7 +14,7 @@ const AnotherComponent = Loadable({
   loading: () => <div>Loading</div>
 });
 
-class App extends React.Component {
+class Client extends React.Component {
   state = {
     counter: 1,
     showLazyComponent: false,
@@ -73,6 +73,4 @@ class App extends React.Component {
   }
 }
 
-setConfig({ logLevel: "debug" });
-
-export default hot(module)(App);
+export default hot(Client);

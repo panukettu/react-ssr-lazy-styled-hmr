@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = merge(common, {
   mode: "development",
   entry: [
-    "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000",
+    "webpack-hot-middleware/client?path=/__webpack_hmr&reload=true",
     "./src/index"
   ],
   output: {
@@ -17,9 +17,9 @@ module.exports = merge(common, {
     hot: true
   },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   template: "index.html"
-    // }),
+    new HtmlWebpackPlugin({
+      template: "index.html"
+    }),
     new webpack.HotModuleReplacementPlugin()
   ]
 });

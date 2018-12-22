@@ -15,7 +15,8 @@ function normalizeAssets(assets) {
 
 export function getTemplate(bundles) {
   const sheet = new ServerStyleSheet();
-  const html = renderToString(sheet.collectStyles(<App />));
+  sheet.collectStyles(<App />);
+  const html = renderToString(<App />);
   const styles = sheet.getStyleTags();
 
   return template({
@@ -43,5 +44,24 @@ export function HMR(req, res) {
       .join("\n");
 
   const html = getTemplate(getJs());
-  res.send(html);
+  res.send(`
+<html>
+  <head>
+    <title>My App</title>
+    <style>
+		${normalizeAssets(assetsByChunkName.main)
+      .filter(path => path.endsWith(".css"))
+      .map(path => fs.readFileSync(outputPath + "/" + path))
+      .join("\n")}
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+		${normalizeAssets(assetsByChunkName.main)
+      .filter(path => path.endsWith(".js"))
+      .map(path => `<script src="${path}"></script>`)
+      .join("\n")}
+  </body>
+</html>
+  `);
 }

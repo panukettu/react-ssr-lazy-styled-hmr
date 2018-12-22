@@ -20,12 +20,12 @@ app.use(require("webpack-hot-middleware")(compiler));
 
 app.use(HMR);
 
-// app.use("/dist", express.static("dist"));
+app.use("/dist", express.static("dist"));
 
-// app.get("/", (req, res) => {
-//   const html = getTemplate();
-//   res.send(html);
-// });
+app.get("/", (req, res) => {
+  const html = getTemplate();
+  res.send(html);
+});
 
 app.listen(port);
 console.log(`Server listening in port ${port}`);
