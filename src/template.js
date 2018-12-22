@@ -1,15 +1,14 @@
-export default ({ body, styles }) => {
+export default ({ html, styles, bundles }) => {
   return `
-    <!DOCTYPE html>
     <html>
       <head>
         <title>from server</title>
         ${styles}
       </head> 
       <body>
-        <div id="root">${body}</div>
+        <div id="root">${html}</div>
       </body>
-      <script src="/dist/bundle.js"></script>
+      ${bundles}
     </html>
   `;
 };
